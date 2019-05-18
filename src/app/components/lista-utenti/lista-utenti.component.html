@@ -1,0 +1,32 @@
+
+<div class="card my-5">
+  <div class="card-body">
+      <form class="form-inline" (ngSubmit)="onSubmit()" #utenteForm="ngForm">
+          <input type="text" [(ngModel)]="valoreRicerca" class="form-control" id="ricerca" name="ricerca" placeholder="Ricerca" #ricerca="ngModel">
+          <button type="submit" class="btn btn-success">Cerca</button>
+        </form>
+        <table class="table" style="text-align: left;">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Nome&nbsp;<i (click)="ordinaNome()" class="fas fa-arrow-down"></i></th>
+              <th scope="col">Cognome&nbsp;<i (click)="ordinaCognome()" class="fas fa-arrow-down"></i></th>
+              <th scope="col">Numero</th>
+              <th scope="col">E-Mail</th>
+              <th>Azioni</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let utente of utenti">
+              <td class="border-bottom border-dark"><i style="color: green" class="fas fa-plus-square"></i>&nbsp;&nbsp;&nbsp;{{utente.nome}}</td>
+              <td class="border-bottom border-dark">{{utente.cognome}}</td>
+              <td class="border-bottom border-dark">{{utente.numero}}</td>
+              <td class="border-bottom border-dark">{{utente.email}}</td>
+              <td class="border-bottom border-dark">
+                <abbr title="Copia {{utente.numero}}"><i style="color: seagreen" class="fas fa-copy" (click)="copia(utente.numero)"></i></abbr>&nbsp;&nbsp;&nbsp;
+                <abbr title="Elimina {{utente.nome}}"><i style="color: red;" class="fas fa-trash-alt" (click)="deleteUser(utente.id, utente.nome, utente.cognome)"></i></abbr>&nbsp;&nbsp;&nbsp;
+                <abbr title="Modifica {{utente.nome}}"><i style="color: blue;" class="fas fa-user-edit" [routerLink]="['/modificautente', utente.id]" routerLinkActive="active"></i></abbr></td>
+              </tr>
+          </tbody>
+        </table>
+  </div>
+</div>

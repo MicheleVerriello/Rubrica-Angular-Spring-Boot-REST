@@ -1,0 +1,32 @@
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmitModifica()" #utenteForm="ngForm">
+        <b><h4 style="color: purple">Modifica Contatto</h4></b>
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" [(ngModel)]="utenteDaModificare.nome" 
+            class="form-control" id="nome" name="nome" placeholder="Inserire Nome" #nome="ngModel" >
+        </div>
+        <div class="form-group">
+          <label for="cognome">Cognome</label>
+          <input type="text" [(ngModel)]="utenteDaModificare.cognome" 
+            class="form-control" id="cognome" name="cognome" placeholder="Inserire Cognome" #cognome="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="numero">Numero</label>
+          <input type="text" [(ngModel)]="utenteDaModificare.numero" 
+            class="form-control" id="numero" name="numero" placeholder="Inserire Numero"  #numero="ngModel">
+        </div>
+        <div [hidden]="!numero.pristine" class="alert alert-danger">Il numero è obbligatorio</div>
+        <div class="form-group">
+          <label for="email">E-Mail</label>
+          <input type="text" [(ngModel)]="utenteDaModificare.email" 
+            class="form-control" id="email" name="email" placeholder="Inserire E-Mail" #email="ngModel">
+        </div>
+        
+        <button type="submit" [disabled]="!utenteForm.form.valid" class="btn btn-outline-success">Aggiungi</button>&nbsp;&nbsp;&nbsp;
+        <a routerLink="/utenti" class="btn btn-outline-danger">Annulla</a>
+      </form>
+    </div>
+  </div>
+  

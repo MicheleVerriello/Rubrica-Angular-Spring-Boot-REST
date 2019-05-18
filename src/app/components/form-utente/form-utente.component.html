@@ -1,0 +1,30 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #utenteForm="ngForm">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" [(ngModel)]="utente.nome" name="nome" 
+          class="form-control" id="nome" placeholder="Inserire Nome" #nome="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="cognome">Cognome</label>
+        <input type="text" [(ngModel)]="utente.cognome" 
+          class="form-control" id="cognome" name="cognome" placeholder="Inserire Cognome" #cognome="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="numero">Numero</label>
+        <input type="text" [(ngModel)]="utente.numero" 
+          class="form-control" id="numero" name="numero" placeholder="Inserire Numero"
+          required #numero="ngModel">
+      </div>
+      <div [hidden]="!numero.pristine" class="alert alert-danger">Il numero è obbligatorio</div>
+      <div class="form-group">
+          <label for="email">E-Mail</label>
+          <input type="text" [(ngModel)]="utente.email" 
+            class="form-control" id="email" name="email" placeholder="Inserire E-Mail" required #email="ngModel">
+        </div>
+      
+      <button type="submit" [disabled]="!utenteForm.form.valid" class="btn btn-outline-success">Aggiungi</button>
+    </form>
+  </div>
+</div>
