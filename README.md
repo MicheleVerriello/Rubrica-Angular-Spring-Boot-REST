@@ -5,9 +5,16 @@ E' divisa in due branches (Angular e Spring), Angular per il front-end e Spring 
 FUNZIONALITA'
 -
 -Ordinamento per nome (dalla A alla Z)
+-
 -Ordinamento per cognome (dalla A alla Z)
+-
 -Ricerca in tutti campi
+-
 -Aggiunta nuovo contatto
+-
 -Modifica contatto esistente
+-
 -Eliminazione contatto esistente
+-
 -Icona di copia che alla pressione copia il numero nella clipboard
+-
