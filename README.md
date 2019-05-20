@@ -1,6 +1,7 @@
 # Rubrica-Angular-Spring-Boot-REST
 Rubrica per la gestione dei contatti.
 E' divisa in due branches (Angular e Spring), Angular per il front-end e Spring per il back-end.
+Il tutto è memorizzato su un database mySql
 
 FUNZIONALITA'
 -
@@ -17,4 +18,8 @@ FUNZIONALITA'
 -Eliminazione contatto esistente
 -
 -Icona di copia che alla pressione copia il numero nella clipboard
+-
+Icona utile per espandere i dettagli del contatto (alla pressione dell' icona si espande la vista del contatto)
+-
+Contatore contatti
 -
