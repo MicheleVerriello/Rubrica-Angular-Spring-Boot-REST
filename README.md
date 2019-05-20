@@ -19,7 +19,7 @@ FUNZIONALITA'
 -
 -Icona di copia che alla pressione copia il numero nella clipboard
 -
-Icona utile per espandere i dettagli del contatto (alla pressione dell' icona si espande la vista del contatto)
+-Icona utile per espandere i dettagli del contatto (alla pressione dell' icona si espande la vista del contatto)
 -
-Contatore contatti
+-Contatore contatti
 -
