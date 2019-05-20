@@ -1,30 +1,48 @@
 <div class="card my-5">
-    <div class="card-body">
-      <form (ngSubmit)="onSubmitModifica()" #utenteForm="ngForm">
-        <b><h4 style="color: purple">Modifica Contatto</h4></b>
-        <div class="form-group">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmitModifica()" #utenteForm="ngForm">
+      <b><h4 style="color: purple">Modifica Contatto</h4></b>
+      <div class="form-row">
+        <div class="form-group col">
           <label for="nome">Nome</label>
-          <input type="text" [(ngModel)]="utenteDaModificare.nome" 
-            class="form-control" id="nome" name="nome" placeholder="Inserire Nome" #nome="ngModel" >
+          <input type="text" [(ngModel)]="utenteDaModificare.nome" class="form-control" id="nome" name="nome" placeholder="Inserire Nome" #nome="ngModel" >
         </div>
-        <div class="form-group">
+        <div class="form-group col">
           <label for="cognome">Cognome</label>
-          <input type="text" [(ngModel)]="utenteDaModificare.cognome" 
-            class="form-control" id="cognome" name="cognome" placeholder="Inserire Cognome" #cognome="ngModel">
+          <input type="text" [(ngModel)]="utenteDaModificare.cognome" class="form-control" id="cognome" name="cognome" placeholder="Inserire Cognome" #cognome="ngModel">
         </div>
-        <div class="form-group">
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
           <label for="numero">Numero</label>
-          <input type="text" [(ngModel)]="utenteDaModificare.numero" 
-            class="form-control" id="numero" name="numero" placeholder="Inserire Numero"  #numero="ngModel">
+          <input type="text" [(ngModel)]="utenteDaModificare.numero" class="form-control" id="numero" name="numero" placeholder="Inserire Numero"  #numero="ngModel">
         </div>
-        <div [hidden]="!numero.pristine" class="alert alert-danger">Il numero è obbligatorio</div>
-        <div class="form-group">
+        <div class="form-group col">
           <label for="email">E-Mail</label>
-          <input type="text" [(ngModel)]="utenteDaModificare.email" 
-            class="form-control" id="email" name="email" placeholder="Inserire E-Mail" #email="ngModel">
+          <input type="text" [(ngModel)]="utenteDaModificare.email" class="form-control" id="email" name="email" placeholder="Inserire E-Mail" #email="ngModel">
         </div>
-        
-        <button type="submit" [disabled]="!utenteForm.form.valid" class="btn btn-outline-success">Aggiungi</button>&nbsp;&nbsp;&nbsp;
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <label for="numerosec">Numero Secondario</label>
+          <input type="text" [(ngModel)]="utenteDaModificare.numero_secondario" class="form-control" id="numerosed" name="numerosec" placeholder="Inserire Numero Secondario" #numero_secondario="ngModel">
+        </div>
+        <div class="form-group col">
+          <label for="emailsec">E-Mail</label>
+          <input type="text" [(ngModel)]="utenteDaModificare.email_secondaria" class="form-control" id="emailsec" name="emailsec" placeholder="Inserire Email Secondaria" #email_secondaria="ngModel">
+        </div>
+      </div> 
+      <div class="form-row">
+        <div class="form-group col">
+          <label for="indirizzo">Indirizzo</label>
+          <input type="text" [(ngModel)]="utenteDaModificare.indirizzo" class="form-control" id="indirizzo" name="indirizzo" placeholder="Inserire Numero Indirizzo" #indirizzo="ngModel">
+        </div>
+        <div class="form-group col">
+          <label for="relazione">Relazione</label>
+          <input type="text" [(ngModel)]="utenteDaModificare.relazione" class="form-control" id="relazione" name="relazione" placeholder="Inserire legame con il contatto" #relazione="ngModel">
+        </div>
+      </div> 
+        <button type="submit" class="btn btn-outline-success">Aggiungi</button>&nbsp;&nbsp;&nbsp;
         <a routerLink="/utenti" class="btn btn-outline-danger">Annulla</a>
       </form>
     </div>

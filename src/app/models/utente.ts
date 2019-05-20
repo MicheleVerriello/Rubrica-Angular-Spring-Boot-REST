@@ -5,4 +5,9 @@ export class Utente {
     cognome: string;
     numero: string;
     email: string;
+    numero_secondario: string;
+    email_secondaria: string;
+    indirizzo: string;
+    relazione: string;
+    opened: boolean = false;
 }

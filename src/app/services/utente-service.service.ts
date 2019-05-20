@@ -76,4 +76,10 @@ export class UtenteServiceService {
     this.urlTemp = this.utenteUrl + '/cerca/' + valoreDiRicerca;
     return this.http.get<Utente[]>(this.urlTemp);
   }
+
+  public numeroUtenti(): Observable<Number>{
+
+    this.urlTemp = this.utenteUrl + '/numeroutenti';
+    return this.http.get<Number>(this.urlTemp);
+  }
 }

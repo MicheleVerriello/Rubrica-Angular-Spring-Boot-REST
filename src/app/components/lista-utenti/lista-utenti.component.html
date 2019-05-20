@@ -1,7 +1,6 @@
-
 <div class="card my-5">
   <div class="card-body">
-      <form class="form-inline" (ngSubmit)="onSubmit()" #utenteForm="ngForm">
+      <form style="margin-bottom: 12px;" class="form-inline" (ngSubmit)="onSubmit()" #utenteForm="ngForm">
           <input type="text" [(ngModel)]="valoreRicerca" class="form-control" id="ricerca" name="ricerca" placeholder="Ricerca" #ricerca="ngModel">
           <button type="submit" class="btn btn-success">Cerca</button>
         </form>
@@ -15,17 +14,24 @@
               <th>Azioni</th>
             </tr>
           </thead>
-          <tbody>
-            <tr *ngFor="let utente of utenti">
-              <td class="border-bottom border-dark"><i style="color: green" class="fas fa-plus-square"></i>&nbsp;&nbsp;&nbsp;{{utente.nome}}</td>
-              <td class="border-bottom border-dark">{{utente.cognome}}</td>
-              <td class="border-bottom border-dark">{{utente.numero}}</td>
-              <td class="border-bottom border-dark">{{utente.email}}</td>
-              <td class="border-bottom border-dark">
-                <abbr title="Copia {{utente.numero}}"><i style="color: seagreen" class="fas fa-copy" (click)="copia(utente.numero)"></i></abbr>&nbsp;&nbsp;&nbsp;
-                <abbr title="Elimina {{utente.nome}}"><i style="color: red;" class="fas fa-trash-alt" (click)="deleteUser(utente.id, utente.nome, utente.cognome)"></i></abbr>&nbsp;&nbsp;&nbsp;
-                <abbr title="Modifica {{utente.nome}}"><i style="color: blue;" class="fas fa-user-edit" [routerLink]="['/modificautente', utente.id]" routerLinkActive="active"></i></abbr></td>
-              </tr>
+          <tbody *ngFor="let utente of utenti">
+            <tr [ngStyle]="{'background-color': utente.opened ? '#BFC9CA' : 'white'}">
+              <td><i class="fas fa-chevron-down" (click)="utente.opened == false ? utente.opened = true : utente.opened = false"></i>&nbsp;&nbsp;&nbsp;<span class="badge badge-primary">Nome</span>&nbsp;&nbsp;&nbsp;{{utente.nome}}</td>
+              <td><span class="badge badge-primary">Cognome</span>&nbsp;&nbsp;&nbsp;{{utente.cognome}}</td>
+              <td><span class="badge badge-primary">Numero</span>&nbsp;&nbsp;&nbsp;{{utente.numero}}</td>
+              <td><span class="badge badge-primary">Email</span>&nbsp;&nbsp;&nbsp;{{utente.email}}</td>
+              <td>
+                <i data-toggle="tooltip" data-placement="bottom" title="Copia {{utente.numero}}" style="color: seagreen" class="fas fa-copy" (click)="copia(utente.numero)"></i>&nbsp;&nbsp;&nbsp;
+                <i data-toggle="tooltip" data-placement="bottom" title="Elimina" style="color: red;" class="fas fa-trash-alt" (click)="deleteUser(utente.id, utente.nome, utente.cognome)"></i>&nbsp;&nbsp;&nbsp;
+                <i data-toggle="tooltip" data-placement="bottom" title="Modifica {{utente.nome}}" style="color: blue;" class="fas fa-user-edit" [routerLink]="['/modificautente', utente.id]" routerLinkActive="active"></i></td>
+            </tr>
+            <tr style="background-color: #BFC9CA" *ngIf="utente.opened">
+              <td class=""><span class="badge badge-primary"></span>&nbsp;&nbsp;&nbsp;</td>
+              <td class=""><span class="badge badge-primary">Relazione</span>&nbsp;&nbsp;&nbsp;{{utente.relazione}}</td>
+              <td class=""><span class="badge badge-primary">Numero</span>&nbsp;&nbsp;&nbsp;{{utente.numero_secondario}}</td>
+              <td class=""><span class="badge badge-primary">Email</span>&nbsp;&nbsp;&nbsp;{{utente.email_secondaria}}</td>
+              <td class=""><span class="badge badge-primary">Indirizzo</span>&nbsp;&nbsp;&nbsp;{{utente.indirizzo}}</td>
+            </tr>
           </tbody>
         </table>
   </div>

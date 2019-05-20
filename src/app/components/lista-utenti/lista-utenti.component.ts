@@ -78,6 +78,11 @@ export class ListaUtentiComponent implements OnInit {
     }
   }
 
+  /*
+   * Metodo riferito al submit del form di ricerca, se l' utente non inserisce nulla viene mostrata la lista di tutti gli utenti
+   * altrimenti viene effettuata una ricerca nel database (La ricerca non è case sensitive e non bisogna mettere per forza un valore completo)
+   * Se viene inserito 'a' o '3' verranno restituiti tutti gli utenti con una 'a' in qualsiasi campo, stessa cosa per il '3'
+   */
   onSubmit(){
     console.log(this.valoreRicerca)
     if(this.valoreRicerca.length == 0){

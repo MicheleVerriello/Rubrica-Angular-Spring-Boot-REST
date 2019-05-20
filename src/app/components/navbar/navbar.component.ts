@@ -8,10 +8,15 @@ import { UtenteServiceService } from 'src/app/services/utente-service.service';
 })
 export class NavbarComponent implements OnInit {
 
+  numeroContatti: Number;
   valoreDiRicerca: string;
 
-  constructor(private utenteService: UtenteServiceService) { }
+  constructor(private utenteService: UtenteServiceService) {  }
 
   ngOnInit() {
+
+    this.utenteService.numeroUtenti().subscribe(res => {
+      this.numeroContatti = res;
+    });
   }
 }
