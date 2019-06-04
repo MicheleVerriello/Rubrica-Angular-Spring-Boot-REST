@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      New
+      New Contact
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,23 +10,23 @@
   <b><h2>Nuovo Contatto</h2></b>
   <ion-item>
     <ion-label>Nome</ion-label>
-    <ion-input placeholder="Inserire nome"></ion-input>
+    <ion-input placeholder="Inserire nome" [(ngModel)]="utente.nome"></ion-input>
   </ion-item>
 
   <ion-item>
       <ion-label>Cognome</ion-label>
-      <ion-input placeholder="Inserire cognome"></ion-input>
+      <ion-input placeholder="Inserire cognome" [(ngModel)]="utente.cognome"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Email</ion-label>
-      <ion-input placeholder="Inserire email"></ion-input>
+      <ion-input placeholder="Inserire email" [(ngModel)]="utente.email"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Numero</ion-label>
-      <ion-input placeholder="Inserire numero"></ion-input>
+      <ion-input placeholder="Inserire numero" [(ngModel)]="utente.numero"></ion-input>
     </ion-item>
     <br><br>
-    <ion-button color="success">Aggiungi</ion-button>
+    <ion-button color="success" (click)="login()">Aggiungi</ion-button>
 </ion-content>
