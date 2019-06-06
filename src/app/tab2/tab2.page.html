@@ -6,6 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
+<!-- Lista di input che l' utente può compilare o meno al fine di aggiungere un nuovo contatto -->
 <ion-content style="text-align: center;">
   <b><h2>Nuovo Contatto</h2></b>
   <ion-item>
@@ -27,6 +28,33 @@
       <ion-label>Numero</ion-label>
       <ion-input placeholder="Inserire numero" [(ngModel)]="utente.numero"></ion-input>
     </ion-item>
-    <br><br>
+
+    <!-- Uso ngIf associato a un flag per mostrare o meno l' icona per mostrare campi aggiuntivi, lo stesso vale per per gli ngIf sottostanti -->
+    <ion-icon *ngIf="!mostraCampi" name="add-circle-outline" (click)="mostraCampiAggiuntivi()" style="font-size: 32px; color: green; margin-top: 12px;"></ion-icon>
+     
+    <ion-item *ngIf="mostraCampi">
+        <ion-label>Secondo Numero</ion-label>
+        <ion-input placeholder="Inserire numero" [(ngModel)]="utente.numero_secondario"></ion-input>
+      </ion-item>
+    
+    <ion-item *ngIf="mostraCampi">
+      <ion-label>Seconda Email</ion-label>
+      <ion-input placeholder="Inserire email" [(ngModel)]="utente.email_secondaria"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="mostraCampi">
+      <ion-label>Indirizzo</ion-label>
+      <ion-input placeholder="Inserire indirizzo" [(ngModel)]="utente.indirizzo"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="mostraCampi">
+      <ion-label>Relazione</ion-label>
+      <ion-input placeholder="Che legame hai?" [(ngModel)]="utente.relazione"></ion-input>
+    </ion-item>
+
+    <ion-icon *ngIf="mostraCampi" name="arrow-dropup-circle" style="font-size: 32px; color: orangered; margin-top: 12px;" (click)="nascondiCampiAggiuntivi()"></ion-icon>
+
+    <br>
+
     <ion-button color="success" (click)="login()">Aggiungi</ion-button>
 </ion-content>

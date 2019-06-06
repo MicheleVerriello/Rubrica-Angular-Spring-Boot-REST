@@ -35,4 +35,20 @@ export class ContactListApiService {
   orderBySurname (): Observable<Utente[]> {
     return this.http.get<Utente[]>(this.contactListUrl + '/ordina/cognome');
   }
+
+  //Ritorna la lista dei contatti in base alla ricerca effettuata
+  research (researchValue: string): Observable<Utente[]> {
+
+    return this.http.get<Utente[]>(this.contactListUrl + '/cerca/' + researchValue);
+  }
+
+  delete (id: string) {
+
+    return this.http.get(this.contactListUrl + '/' + id);
+  }
+
+  countContacts (): Observable<Number> {
+
+    return this.http.get<Number>(this.contactListUrl + '/numeroutenti');
+  }
 }

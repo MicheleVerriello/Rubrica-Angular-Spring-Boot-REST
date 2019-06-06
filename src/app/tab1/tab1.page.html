@@ -1,15 +1,24 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Contacts
+        Contacts <ion-badge>{{numeroContatti}}</ion-badge>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-searchbar animated placeholder="Cerca" [(ngModel)]="researchValue" (click)="research()"></ion-searchbar>    
+  
   <ion-list>
-    <ion-item *ngFor="let contatto of utenti">
+
+    <ion-item *ngFor="let contatto of utenti" (click)="presentActionSheet(contatto.id)">
+      <ion-avatar>
+        <img src="assets\avatar-default-icon.png">
+      </ion-avatar> &nbsp;
       {{contatto.nome}} {{contatto.cognome}}
     </ion-item>
+
   </ion-list>
+
 </ion-content>
