@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ContactListApiService } from '../services/contact-list-api.service';
 
 @Component({
   selector: 'app-tabs',
@@ -6,7 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
-
-  constructor() {}
 
 }

@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dettagli {{utente.nome}} {{utente.cognome}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+
+    <img src="\assets\avatar-default-icon.png">
+
+    <ion-card-header>
+      <ion-card-subtitle>Dettagli contatto</ion-card-subtitle>
+      <ion-card-title>{{utente.nome}} {{utente.cognome}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+
+      <ion-list>
+        <ion-item *ngIf="utente.numero != null">
+          <div>
+            <ion-label ion-text color="primary"><b>Cellulare</b></ion-label>
+            <br>{{utente.numero}}
+          </div>
+        </ion-item>
+        <ion-item *ngIf="utente.numero_secondario != null">
+          <div>
+            <ion-label ion-text color="primary"><b>Cellulare 2</b></ion-label>
+            <br>{{utente.numero_secondario}}
+          </div>
+        </ion-item>
+        <ion-item *ngIf="utente.email != null">
+          <div>
+            <ion-label ion-text color="primary"><b>Email</b></ion-label>
+            <br>{{utente.email}}
+          </div>
+        </ion-item>
+        <ion-item *ngIf="utente.email_secondaria != null">
+          <div>
+            <ion-label ion-text color="primary"><b>Email 2</b></ion-label>
+            <br>{{utente.email_secondaria}}
+          </div>
+        </ion-item>
+        <ion-item *ngIf="utente.indirizzo != null">
+          <div>
+            <ion-label ion-text color="primary"><b>Indirizzo</b></ion-label>
+            <br>{{utente.indirizzo}}
+          </div>
+        </ion-item>
+        <ion-item *ngIf="utente.relazione != null && utente.relazione == ' '">
+          <div>
+            <ion-label ion-text color="primary"><b>Relazione</b></ion-label>
+            <br>{{utente.relazione}}
+          </div>
+        </ion-item>
+      </ion-list>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-icon name="close-circle"  style="color: red; font-size: 64px; float:right;" (click)="goBack()"></ion-icon>
+</ion-content>

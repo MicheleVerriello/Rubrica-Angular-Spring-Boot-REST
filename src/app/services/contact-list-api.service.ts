@@ -51,4 +51,9 @@ export class ContactListApiService {
 
     return this.http.get<Number>(this.contactListUrl + '/numeroutenti');
   }
+
+  getContactById(id: string): Observable<Utente> {
+
+    return this.http.get<Utente>(this.contactListUrl + '/recupera/' + id);
+  }
 }

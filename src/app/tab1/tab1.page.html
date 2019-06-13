@@ -1,23 +1,42 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-        Contacts <ion-badge>{{numeroContatti}}</ion-badge>
+        Contacts {{numeroContatti}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-down"
+      pullingText="Rilascia per aggiornare"
+      refreshingSpinner="lines small"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
   <ion-searchbar animated placeholder="Cerca" [(ngModel)]="researchValue" (click)="research()"></ion-searchbar>    
   
   <ion-list>
 
-    <ion-item *ngFor="let contatto of utenti" (click)="presentActionSheet(contatto.id)">
-      <ion-avatar>
-        <img src="assets\avatar-default-icon.png">
-      </ion-avatar> &nbsp;
-      {{contatto.nome}} {{contatto.cognome}}
-    </ion-item>
+    <ion-item-sliding *ngFor="let contatto of utenti">
+
+      <ion-item (click)="presentActionSheet(contatto.id)">
+        <ion-avatar>
+          <img src="assets\avatar-default-icon.png">
+        </ion-avatar> &nbsp;
+        {{contatto.nome}} {{contatto.cognome}}
+      </ion-item>
+
+      <ion-item-options side="end" >
+        <ion-item-option color="danger" (click)="presentAlertConfirm(contatto)" expandable>
+          Elimina
+        </ion-item-option>
+      </ion-item-options>
+
+    </ion-item-sliding>
 
   </ion-list>
 
